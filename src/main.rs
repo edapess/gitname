@@ -6,7 +6,6 @@ use colored::Colorize;
 
 fn git_name() -> Vec<String> {
     let mut guess = String::new();
-
 io::stdin()
         .read_line(&mut guess)
         .expect("Failed to read line");
@@ -72,6 +71,8 @@ if branch_output.status.success() {
 }
 
 fn main() {
+    println!("Please enter your your task link from Linear: ");
+
     let result = git_name();
         if result.len() >= 2 {
         let last_two: Vec<&String> = result.iter().rev().take(2).rev().collect();
