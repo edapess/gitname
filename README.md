@@ -7,23 +7,23 @@ To get started with **Gitname**, follow these pre-installation steps:
 1. **Install Rust and Cargo:**
 
    ```bash
-   $ curl https://sh.rustup.rs -sSf | sh
+   curl https://sh.rustup.rs -sSf | sh
    ```
 
 ## Installation
 
 1. **Clone this Repository:**
    ```bash
-   $ git clone https://github.com/edapess/gitname.git
+   git clone https://github.com/edapess/gitname.git
    ```
 2. **Go to repository directory:**
    ```bash
-   $ cd gitname
+   cd gitname
    ```
 3. **Build Project**
 
    ```bash
-   $ ./build.sh
+   ./build.sh
    ```
 
 4. _Restart Your Terminal:
@@ -34,7 +34,7 @@ To get started with **Gitname**, follow these pre-installation steps:
 1. **Run Gitname:**
 
 ```bash
-   $ gitname
+   gitname
 ```
 
 2. Insert Task Link from Linear:
