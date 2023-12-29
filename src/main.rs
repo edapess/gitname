@@ -1,14 +1,17 @@
+extern crate colored;
+
 use std::io;
 use std::process::Command;
+use colored::Colorize;
 
 fn git_name() -> Vec<String> {
     let mut guess = String::new();
 
-    io::stdin()
+io::stdin()
         .read_line(&mut guess)
         .expect("Failed to read line");
 
-    let array: Vec<String> = guess.trim().split('/').map(String::from).collect();
+let array: Vec<String> = guess.trim().split('/').map(String::from).collect();
     array
 }
 fn create_branch_with_name (branch_name_from_link: String) {
@@ -21,8 +24,13 @@ fn create_branch_with_name (branch_name_from_link: String) {
 
 // check if creating the branch was successful
 if branch_output.status.success() {
- println!("Git branch {branch_name_from_link} created successfully");
 
+    println!(
+        "{} {} {}",
+        "Git branch".cyan(),
+        branch_name_from_link.green().italic(),
+        "created successfully".cyan()
+    );
  // switch to the new Git branch
  let checkout_output = Command::new("git")
      .arg("checkout")
@@ -36,18 +44,29 @@ if branch_output.status.success() {
  }
 
  // Print the error of the checkout command (if any)
- if !checkout_output.stderr.is_empty() {
-     eprintln!("stderr: {}", String::from_utf8_lossy(&checkout_output.stderr));
+ if !checkout_output.status.success() {
+    eprintln!(
+        "{} {} {}",
+        "Error:".red(),
+        "stderr:".red(),
+        String::from_utf8_lossy(&checkout_output.stderr).red()
+    );
  }
 
  // Check if the checkout command was successful
  if checkout_output.status.success() {
-     println!("Switched to Git branch '{branch_name_from_link} successfully");
+
+     println!(
+        "{} {} {}",
+        "Switched to Git branch".cyan(),
+        branch_name_from_link.green().italic(),
+        "successfully".cyan()
+    );
  } else {
-     eprintln!("Failed to switch to Git branch");
+     eprintln!("{}","Failed to switch to Git branch".red());
  }
 } else {
- eprintln!("Failed to create Git branch");
+ eprintln!("{}","Failed to create Git branch".red());
 }
 
 }
