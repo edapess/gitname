@@ -28,4 +28,3 @@ fn main() {
     }
 
 }
-// https://linear.app/chalkboard/issue/CHA-3625/typo-fixes-verification-screen
