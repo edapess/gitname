@@ -5,12 +5,12 @@ use std::process::Command;
 use colored::Colorize;
 
 fn git_name() -> Vec<String> {
-    let mut guess = String::new();
+    let mut task_link = String::new();
 io::stdin()
-        .read_line(&mut guess)
+        .read_line(&mut task_link)
         .expect("Failed to read line");
 
-let array: Vec<String> = guess.trim().split('/').map(String::from).collect();
+let array: Vec<String> = task_link.trim().split('/').map(String::from).collect();
     array
 }
 fn create_branch_with_name (branch_name_from_link: String) {
