@@ -27,7 +27,7 @@ if [ $? -eq 0 ]; then
     EXECUTABLE="$PROJECT_DIR/target/release/gitname"
     # move the executable to /usr/local/bin
     echo -e "Moving executable to ${GREEN}/usr/local/bin/...${NC}"
-    mv "$EXECUTABLE" /usr/local/bin/
+    sudo mv "$EXECUTABLE" /usr/local/bin/
 
     echo -e "Executable is now available in ${GREEN}/usr/local/bin/gitname${NC}"
     echo -e "Please restart your terminal session"
